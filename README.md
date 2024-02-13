@@ -1,5 +1,6 @@
 # singularity
-Code repo to have a docker image of singularity
+Code repo to have a docker image of singularity.
+Uses Ubuntu 22.04 and Singularity 4.1.1
 
 # How to build and run
 
