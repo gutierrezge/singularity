@@ -36,6 +36,13 @@ Run the `test.sh` script with the following command, this takes several minutes,
 ./test.sh
 ```
 
+# Saving current state
+As you may notice, creating the `planner.img` take a long time. If you would like to save the actual state of the docker image to avoid waiting for so long, you can execute the following command. You can do this either while docker is in use or stopped.
+
+```
+docker commit singularity singularity
+```
+
 # Contribuitors
 - Gabriel Gutierrez
 - Denis Zelaya
