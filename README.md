@@ -37,7 +37,7 @@ Run the `test.sh` script with the following command, this takes several minutes,
 ```
 
 # Saving current state
-As you may notice, creating the `planner.img` take a long time. If you would like to save the actual state of the docker image to avoid waiting for so long, you can execute the following command. You can do this either while docker is in use or stopped.
+As you may notice, creating the `planner.img` take a long time. If you would like to save the actual state of the docker image to avoid waiting for so long, you can execute the following command. You can do this either while docker is in use or stopped, but this commands runs in the hos machine, this means outside of the actual singularity docker image.
 
 ```
 docker commit singularity singularity
