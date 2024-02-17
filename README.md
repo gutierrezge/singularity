@@ -5,7 +5,7 @@ This project uses files from [Delfi1](https://bitbucket.org/ipc2018-classical/te
 
 This project has been tested in Linux and MacOS system.
 
-# For the desperate
+# For the Impatiens
 If you are in a hurry to build and run use the following command.
 
 ```
