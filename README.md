@@ -1,29 +1,36 @@
-# singularity
-Code repo to have a docker image of singularity.
-Uses Ubuntu 22.04 and Singularity 4.1.1
+# Singularity
+This repo is meant to build a docker image with singularity
+The docker image is based of ubuntu 22.04 and singularity 4.1.1
+This project uses files from [Delfi1](https://bitbucket.org/ipc2018-classical/team23/src/ipc-2018-seq-opt/) team from [IPC 2018 competition](https://ipc2018-classical.bitbucket.io/#planners).
 
-# How to build and run
+This project has been tested in Linux and MacOS system.
 
-## Just using docker
-If you like to run without using docker-compose, use the following command
-```
-docker build . -t singularity && docker run -it --privileged \
-    -v /etc/timezone:/etc/timezone:ro \
-    -v /etc/localtime:/etc/localtime:ro \
-    singularity
-```
-
-## Using docker-compose
-Please note that docker-compose does not allow proper terminal interaction. Use this option when you want to have a script that runs all steps you want whenever the container starts. You add this script using COPY command in the Dockerfile and use the CMD to run the desired script. This is not an error, this is the nature of how docker-compose behave.
+# For the desperate
+If you are in a hurry to build and run use the following command.
 
 ```
-docker-compose build && docker-compose up
+docker build . -t singularity && docker run -it --privileged -v /etc/timezone:/etc/timezone:ro -v /etc/localtime:/etc/localtime:ro singularity
 ```
+
+# Build the project
+To build the docker image you can use the following command, this could take several minutes, be patient.
+
+```
+docker build . -t singularity
+```
+
+# Run the project
+After the docker image has been build you can run the docker image build run the following command.
+
+```
+docker run -it --privileged -v /etc/timezone:/etc/timezone:ro -v /etc/localtime:/etc/localtime:ro singularity
+```
+
+Please note that you will be inside the container and to use singularity, you can test it by runnin `test.sh` file.
 
 # Testing
-Dockerfile creates a simple `test.sh` file that builds and executes a planner. This step takes between 5 to 10 minutes to execute.
-
-Inside the container, run the `test.sh` script with the following command
+Dockerfile creates a simple `test.sh` file that builds and executes a sample planner.
+Run the `test.sh` script with the following command, this takes several minutes, be patient.
 
 ```
 ./test.sh

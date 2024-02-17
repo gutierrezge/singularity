@@ -30,8 +30,11 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Create test.sh file
 RUN echo '#!/bin/bash' > /workspace/test.sh && \
-    echo "singularity build planner.img Singularity" >> /workspace/test.sh && \
-    echo "singularity run -C -H $RUNDIR planner.img domain.pddl s1-0.pddl sas_plan" >> /workspace/test.sh && \
+    echo 'file="planner.img"' >> /workspace/test.sh && \
+    echo 'if [ ! -e "$file" ]; then' >> /workspace/test.sh && \
+    echo '    singularity build planner.img Singularity' >> /workspace/test.sh && \
+    echo 'fi' >> /workspace/test.sh && \
+    echo "singularity run -C -H `pwd` planner.img domain.pddl s1-0.pddl sas_plan" >> /workspace/test.sh && \
     chmod +x /workspace/test.sh
     
 CMD ["bash"]
