@@ -22,8 +22,8 @@ WORKDIR /workspace
 
 # Download Singularity, domain and solution files
 RUN wget https://bitbucket.org/ipc2018-classical/team23/raw/0442832d7c4c0d8480841ddba7bc864ee5d0bb0f/Singularity && \
-    wget https://bitbucket.org/ipc2018-classical/team23/src/ipc-2018-seq-opt/misc/tests/benchmarks/miconic/domain.pddl && \
-    wget https://bitbucket.org/ipc2018-classical/team23/src/ipc-2018-seq-opt/misc/tests/benchmarks/miconic/s1-0.pddl
+    wget hhttps://bitbucket.org/ipc2018-classical/team23/raw/0442832d7c4c0d8480841ddba7bc864ee5d0bb0f/misc/tests/benchmarks/miconic/domain.pddl && \
+    wget https://bitbucket.org/ipc2018-classical/team23/raw/0442832d7c4c0d8480841ddba7bc864ee5d0bb0f/misc/tests/benchmarks/miconic/s1-0.pddl
 
 # Set environment variables
 ENV DEBIAN_FRONTEND=noninteractive
