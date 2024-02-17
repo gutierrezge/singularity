@@ -1,6 +1,8 @@
 # Singularity
-This repo is meant to build a docker image with singularity
+This repo is meant to build a docker image with singularity.
+
 The docker image is based of ubuntu 22.04 and singularity 4.1.1
+
 This project uses files from [Delfi1](https://bitbucket.org/ipc2018-classical/team23/src/ipc-2018-seq-opt/) team from [IPC 2018 competition](https://ipc2018-classical.bitbucket.io/#planners).
 
 This project has been tested in Linux and MacOS system.
@@ -9,7 +11,11 @@ This project has been tested in Linux and MacOS system.
 If you are in a hurry to build and run use the following command.
 
 ```
-docker build . -t singularity && docker run -it --privileged -v /etc/timezone:/etc/timezone:ro -v /etc/localtime:/etc/localtime:ro singularity
+docker build . -t singularity && \
+docker run -it --privileged \
+        -v /etc/timezone:/etc/timezone:ro \
+        -v /etc/localtime:/etc/localtime:ro \
+        singularity
 ```
 
 # Build the project
@@ -23,7 +29,10 @@ docker build . -t singularity
 After the docker image has been build you can run the docker image build run the following command.
 
 ```
-docker run -it --privileged -v /etc/timezone:/etc/timezone:ro -v /etc/localtime:/etc/localtime:ro singularity
+docker run -it --privileged \
+    -v /etc/timezone:/etc/timezone:ro \
+    -v /etc/localtime:/etc/localtime:ro \
+    singularity
 ```
 
 Please note that you will be inside the container and to use singularity, you can test it by runnin `test.sh` file.
@@ -41,6 +50,14 @@ As you may notice, creating the `planner.img` take a long time. If you would lik
 
 ```
 docker commit $(docker ps -q --filter ancestor=singularity) singularity
+```
+
+The following statement `$(docker ps -q --filter ancestor=singularity)` searches the container ID of an image called singularity.
+
+You can also get the container ID by running `docker ps` and copy the container ID and replace it for the statement above.
+
+```
+docker commit <container id> <new image name>
 ```
 
 # Contribuitors
