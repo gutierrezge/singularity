@@ -13,6 +13,7 @@ If you are in a hurry to build and run use the following command.
 ```
 docker build . -t singularity && \
 docker run -it --privileged \
+        -v `pwd`/data:/workspace \
         -v /etc/timezone:/etc/timezone:ro \
         -v /etc/localtime:/etc/localtime:ro \
         singularity
@@ -30,6 +31,7 @@ After the docker image has been build you can run the docker image build run the
 
 ```
 docker run -it --privileged \
+    -v `pwd`/data:/workspace \
     -v /etc/timezone:/etc/timezone:ro \
     -v /etc/localtime:/etc/localtime:ro \
     singularity
