@@ -13,7 +13,7 @@ If you are in a hurry to build and run use the following command.
 ```
 docker build . -t singularity && \
 docker run -it --privileged \
-        -v `pwd`/data:/workspace \
+        -v `pwd`/data:/workspace/data \
         -v /etc/timezone:/etc/timezone:ro \
         -v /etc/localtime:/etc/localtime:ro \
         singularity
@@ -31,11 +31,13 @@ After the docker image has been build you can run the docker image build run the
 
 ```
 docker run -it --privileged \
-    -v `pwd`/data:/workspace \
+    -v `pwd`/data:/workspace/data \
     -v /etc/timezone:/etc/timezone:ro \
     -v /etc/localtime:/etc/localtime:ro \
     singularity
 ```
+
+This argument `-v `pwd`/data:/workspace/data` mounts a shared volume, this will allow you to share files between host and container.
 
 Please note that you will be inside the container and to use singularity, you can test it by runnin `test.sh` file.
 
